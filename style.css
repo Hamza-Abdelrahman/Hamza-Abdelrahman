@@ -1,0 +1,260 @@
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0a0a18;
+  color: #00fff7;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+main {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* Fade animation for sections */
+.fade {
+  opacity: 0;
+  animation: fadeIn 1.4s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Banner Section */
+.banner {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #00fff7;
+  box-shadow: 0 0 30px #00fff7;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  transition: transform 0.5s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.banner h1 {
+  font-size: 2.8rem;
+  margin: 0;
+  text-shadow: 0 0 12px #00fff7;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #0ff;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+  text-shadow: 0 0 10px #00fff7;
+}
+
+/* Details Section */
+.details {
+  background: #0c0c22;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 25px rgba(0, 255, 247, 0.2);
+  margin-bottom: 3rem;
+}
+
+.details h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 8px #00fff7;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.info-list li {
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(0, 255, 247, 0.1);
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.info-list li strong {
+  color: #0ff;
+}
+
+/* Contact Section */
+.contact {
+  position: relative;
+  padding: 3rem 1rem;
+  background: #0a0a18;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+  overflow: hidden;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Floating Particle Background (simple circles) */
+.contact::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+      circle at 25% 25%,
+      #00fff7,
+      transparent 20%
+    ),
+    radial-gradient(circle at 75% 75%, #00fff7, transparent 20%);
+  opacity: 0.1;
+  animation: floatParticles 20s ease-in-out infinite alternate;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(15px, 15px);
+  }
+}
+
+.social-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 8px #00fff7;
+}
+
+/* Social links layout */
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Social Buttons */
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00fff7;
+  background: rgba(0, 255, 247, 0.1);
+  border: 2px solid transparent;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(0, 255, 247, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px #00fff7);
+  user-select: none;
+}
+
+.social-btn i {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 6px #00fff7);
+  transition: transform 0.3s ease;
+}
+
+.social-btn:hover {
+  background: rgba(0, 255, 247, 0.3);
+  border-color: #00fff7;
+  box-shadow: 0 0 30px #00fff7, 0 0 60px #00fff7;
+  color: #fff;
+  transform: translateY(-6px) scale(1.05);
+}
+
+.social-btn:hover i {
+  transform: rotate(15deg) scale(1.2);
+}
+
+/* Individual brand colors on hover */
+.social-btn.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.3);
+  border-color: #25d366;
+  box-shadow: 0 0 30px #25d366, 0 0 60px #25d366;
+  color: #25d366;
+  filter: drop-shadow(0 0 8px #25d366);
+}
+
+.social-btn.whatsapp:hover i {
+  filter: drop-shadow(0 0 12px #25d366);
+}
+
+.social-btn.instagram:hover {
+  background: rgba(225, 48, 108, 0.3);
+  border-color: #e1306c;
+  box-shadow: 0 0 30px #e1306c, 0 0 60px #e1306c;
+  color: #e1306c;
+  filter: drop-shadow(0 0 8px #e1306c);
+}
+
+.social-btn.instagram:hover i {
+  filter: drop-shadow(0 0 12px #e1306c);
+}
+
+.social-btn.snapchat:hover {
+  background: rgba(255, 252, 0, 0.3);
+  border-color: #fffc00;
+  box-shadow: 0 0 30px #fffc00, 0 0 60px #fffc00;
+  color: #fffc00;
+  filter: drop-shadow(0 0 8px #fffc00);
+}
+
+.social-btn.snapchat:hover i {
+  filter: drop-shadow(0 0 12px #fffc00);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .social-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-btn {
+    justify-content: center;
+  }
+}
